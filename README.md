@@ -50,14 +50,14 @@ pip install -r requirements.txt
 
 ## 📊 Work in Progress
 
-[x] Project structure initialized
-[x] Virtual environment configured
-[x] Dependencies defined
-[] Exploratory data analysis (EDA)
-[] Baseline model (TF-IDF + Logistic Regression)
-[] Transformer-based model (BERT)
-[] Evaluation and discussion
-[] Final report
+- [x] Project structure initialized
+- [x] Virtual environment configured
+- [x] Dependencies defined
+- [x] Exploratory data analysis (EDA)
+- [ ] Baseline model (TF-IDF + Logistic Regression)
+- [ ] Transformer-based model (BERT)
+- [ ] Evaluation and discussion
+- [ ] Final report
 
 ## 🧠 Problem Summary
 
