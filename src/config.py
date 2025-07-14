@@ -13,6 +13,7 @@ MODEL_BASE_PATH = BASE_DIR / 'models'
 
 # === Model Settings ===
 LABELS = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
+RANDOM_STATE = 42  # For reproducibility
 
 # === General API Settings ===
 REQUEST_TIMEOUT = 10  # seconds

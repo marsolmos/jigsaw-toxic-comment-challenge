@@ -4,6 +4,24 @@ This repository contains a solution in progress for the Jigsaw Toxic Comment Cla
 
 The task is to build a multilabel classification model capable of detecting various types of toxicity in Wikipedia comments.
 
+## 📦 Project Overview
+
+1. Training
+  Run `main.py` to train a new model. It will:
+    - Load and preprocess data from `data/`
+    - Train a model pipeline (e.g., TF-IDF + Logistic Regression)
+    - Evaluate performance on a validation set
+    - Save the trained model and vectorizer under `models/<model_version>/`
+
+2. Serving Predictions
+  Use the FastAPI app in `src/api.py` to serve your model:
+    - The API loads the requested model version at startup
+    - Accepts comment text via a `/predict` POST endpoint
+    - Returns toxicity predictions for the comment
+
+3. Experimentation
+  Use notebooks in `notebooks/` for exploratory data analysis, feature engineering, or testing new model ideas.
+
 ## 📁 Project structure
 
 ```bash
@@ -11,9 +29,12 @@ toxicity-classification/
 │
 ├── data/               # Input data (train.csv, test.csv, etc.)
 ├── notebooks/          # Exploratory notebooks (EDA, modeling)
-├── src/                # Source code (preprocessing, training, evaluation)
+├── src/
+│   ├── main.py          # FastAPI endpoints (for inference)
+│   ├── model.py         # Class-based model wrapper (load, predict)
+│   ├── config.py        # Paths, label list, constants
+│   └── utils.py         # Utility functions (cleaning, evaluation, etc.)
 ├── .venv/              # Virtual environment (not committed)
-├── .env                # Environment variables (e.g., Kaggle API keys)
 ├── requirements.txt    # Python dependencies
 ├── README.md           # Project documentation
 ├── setup.py            # For editable install of src/

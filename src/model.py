@@ -19,7 +19,7 @@ class ToxicityClassifier:
         self.model_id = model_id
         self.model = None
         self.vectorizer = None
-        self._load_model()
+        # self._load_model()
 
     def _load_model(self):
         """
@@ -50,6 +50,9 @@ class ToxicityClassifier:
         Returns:
             Dict: A dictionary with labels as keys and boolean values indicating toxicity.
         """
-        X = self.vectorizer.transform([text])
-        preds = self.model.predict(X)[0]
-        return {label: bool(pred) for label, pred in zip(LABELS, preds)}
+        return {
+            'label': 0
+        }
+        # X = self.vectorizer.transform([text])
+        # preds = self.model.predict(X)[0]
+        # return {label: bool(pred) for label, pred in zip(LABELS, preds)}
