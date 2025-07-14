@@ -1,53 +1,54 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from typing import Dict
 
-from model import ToxicityClassifier
+from src.model import ToxicityClassifier  # relative import
+from src.config import LABELS  # optionally used for validation or response schema
 
+# Initialize FastAPI app
+app = FastAPI(
+    title="Toxicity Comment Classifier API",
+    description="A FastAPI app to classify Wikipedia comments as toxic or non-toxic.",
+    version="0.1.0"
+)
 
-# Define the API object and load the classifier
-app = FastAPI()
-classifier = ToxicityClassifier(model_id="latest")
-
-# Define the data model for the comment input
+# Input schema
 class Comment(BaseModel):
     text: str
 
 
 #################################
-######### ROOT ENDPOINT #########
+########## ROOT ENDPOINT ########
 #################################
-@app.get("/", tags=["default"])
+@app.get("/", tags=["Default"])
 def root():
     return {"message": "Toxicity API is running."}
 
 
-################################################
-######### ARTICLE PROCESSING ENDPOINTS #########
-################################################
+###################################################
+########## PREDICT SINGLE COMMENT ENDPOINT ########
+###################################################
 @app.post("/predict-single-comment/", tags=["Toxicity Processing"])
-def predict_single_comment(comment: Comment, model_id: str = "latest") -> Dict[str, object]:
+def predict_single_comment(comment: Comment, model_id: str = Query("latest")) -> Dict[str, object]:
     """
-    Predict a single comment toxicity labels.
-    
-    Args:
-        comment (Comment): The Wikipedia comment where to predict labels.
-        model_id (str): The ID of the model to use for prediction. Defaults to "latest".
-        
-    Returns:
-        Dict: A dictionary containing the classified toxicity labels.
-    """
-    # Validate the input comment
-    if not comment.text:
-        raise HTTPException(status_code=400, detail="Comment text cannot be empty.")
-    
-    # Load the classifier with the specified model ID
-    clf = ToxicityClassifier(model_id=model_id)
-    predictions = clf.predict(comment.text)
+    Predict toxicity labels for a single comment.
 
-    # Check if predictions are empty
-    if not predictions:
-        raise HTTPException(status_code=404, detail="Comment could not be classified.")
+    Args:
+        comment (Comment): Comment object with text to classify.
+        model_id (str): Identifier of the model version to use.
+
+    Returns:
+        Dict: Input, selected model, and prediction results.
+    """
+    if not comment.text.strip():
+        raise HTTPException(status_code=400, detail="Comment text cannot be empty.")
+
+    try:
+        clf = ToxicityClassifier(model_id=model_id)
+        predictions = clf.predict(comment.text)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Model '{model_id}' not found.")
+
     return {
         "model": model_id,
         "input": comment.text,
