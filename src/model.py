@@ -17,9 +17,7 @@ class ToxicityClassifier:
             FileNotFoundError: If the model or vectorizer files do not exist.
         """
         self.model_id = model_id
-        self.model = None
-        self.vectorizer = None
-        # self._load_model()
+        self._load_model()
 
     def _load_model(self):
         """
@@ -31,7 +29,7 @@ class ToxicityClassifier:
             FileNotFoundError: If the model or vectorizer files do not exist.
         """
         model_dir = MODEL_BASE_PATH / self.model_id
-        model_path = model_dir / "toxicity_model.pkl"
+        model_path = model_dir / "model.pkl"
         vectorizer_path = model_dir / "vectorizer.pkl"
 
         if not model_path.exists() or not vectorizer_path.exists():
@@ -50,9 +48,6 @@ class ToxicityClassifier:
         Returns:
             Dict: A dictionary with labels as keys and boolean values indicating toxicity.
         """
-        return {
-            'label': 0
-        }
-        # X = self.vectorizer.transform([text])
-        # preds = self.model.predict(X)[0]
-        # return {label: bool(pred) for label, pred in zip(LABELS, preds)}
+        X = self.vectorizer.transform([text])
+        preds = self.model.predict(X)[0]
+        return {label: bool(pred) for label, pred in zip(LABELS, preds)}

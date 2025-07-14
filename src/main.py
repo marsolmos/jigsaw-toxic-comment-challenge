@@ -25,7 +25,7 @@ def root():
 ################################################
 ######### ARTICLE PROCESSING ENDPOINTS #########
 ################################################
-@app.get("/predict-single-comment/", tags=["Toxicity Processing"])
+@app.post("/predict-single-comment/", tags=["Toxicity Processing"])
 def predict_single_comment(comment: Comment, model_id: str = "latest") -> Dict[str, object]:
     """
     Predict a single comment toxicity labels.
