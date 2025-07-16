@@ -1,5 +1,6 @@
 import joblib
 from typing import Dict
+from pathlib import Path
 
 
 from config import MODEL_BASE_DIR, LABELS
@@ -51,3 +52,27 @@ class ToxicityClassifier:
         X = self.vectorizer.transform([text])
         preds = self.model.predict(X)[0]
         return {label: bool(pred) for label, pred in zip(LABELS, preds)}
+
+
+class EmbeddingClassifier:
+    """A class to handle toxicity classification using a pre-trained embedding model.
+    This class loads a model and an embedding encoder from disk and provides a method to predict toxicity
+    labels for a given text.
+    """
+    def __init__(self, model_id: str = "embedding-latest"):
+        """
+        Loads an embedding-based classifier from disk.
+        """
+        model_path = Path("models") / model_id
+        self.embedder = joblib.load(model_path / "embedder.pkl")
+        self.classifier = joblib.load(model_path / "classifier.pkl")
+        self.labels = self.classifier.classes_  # o pásalas tú manualmente
+
+    def predict(self, text: str) -> dict:
+        """
+        Predict toxicity scores from a comment string.
+        """
+        # Create embedding (batch of size 1)
+        embedding = self.embedder.encode([text])
+        probs = self.classifier.predict_proba(embedding)[0]  # [0] = single sample
+        return dict(zip(self.labels, probs.tolist()))
