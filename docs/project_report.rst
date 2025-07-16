@@ -45,7 +45,7 @@ The updated model achieved, as expected, similar ROC-AUC scores as the baseline,
 Embedding-Based Models
 ----------------------
 
-To further improve the model, we experimented with embedding-based methods. We used pre-trained embeddings from Sentence Transformers, which have shown to be effective in various NLP tasks.
+To further improve the model, we experimented with embedding-based methods. We used pre-trained embeddings from Sentence Transformers, which have shown to be effective in various NLP tasks. Previous preprocessing steps were not included here, as they had limited impact on performance.
 
 We implemented the following embedding-based models:
 

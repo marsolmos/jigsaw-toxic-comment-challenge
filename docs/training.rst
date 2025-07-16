@@ -32,4 +32,4 @@ File: ``src/training/train_embedding_model.py``
 - Uses a pre-trained embedding model to convert text into dense vectors.
 - Trains a classifier on these embeddings.
 - Aims to improve performance by capturing semantic meaning.
-- This model can be used in conjunction with the improved preprocessing steps.
+- This model can be used in conjunction with the improved preprocessing steps (not implemented as it didn't yield significant improvements).
