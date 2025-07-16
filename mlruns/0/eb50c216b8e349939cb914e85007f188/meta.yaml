@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Mariano%20S%C3%A1nchez/Desktop/repl/jigsaw-toxic-comment-challenge/mlruns/0/eb50c216b8e349939cb914e85007f188/artifacts
+end_time: 1752694624620
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: eb50c216b8e349939cb914e85007f188
+run_name: tfidf_logreg_baseline_tfidf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752694623612
+status: 3
+tags: []
+user_id: Mariano Sánchez
