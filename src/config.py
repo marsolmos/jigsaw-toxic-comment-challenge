@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DATA_DIR = BASE_DIR / 'data' / '01_raw'
 PROCESSED_DATA_DIR = BASE_DIR / 'data' / '02_processed'
 
-MODEL_BASE_PATH = BASE_DIR / 'models'
+MODEL_BASE_DIR = BASE_DIR / 'models'
 
 # === Model Settings ===
 LABELS = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']

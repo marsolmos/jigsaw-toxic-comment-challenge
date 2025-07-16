@@ -2,7 +2,7 @@ import joblib
 from typing import Dict
 
 
-from config import MODEL_BASE_PATH, LABELS
+from config import MODEL_BASE_DIR, LABELS
 
 
 class ToxicityClassifier:
@@ -28,7 +28,7 @@ class ToxicityClassifier:
         Raises:
             FileNotFoundError: If the model or vectorizer files do not exist.
         """
-        model_dir = MODEL_BASE_PATH / self.model_id
+        model_dir = MODEL_BASE_DIR / self.model_id
         model_path = model_dir / "model.pkl"
         vectorizer_path = model_dir / "vectorizer.pkl"
 

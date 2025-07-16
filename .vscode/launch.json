@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Train model (train.py)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train.py",
+      "console": "internalConsole",
+      "justMyCode": false,
+      "args": [
+        "--model-id", "baseline_tfidf",
+        "--max-features", "10000",
+        "--C", "4.0"
+      ]
+    }
+  ]
+}
