@@ -22,6 +22,9 @@ The task is to build a multilabel classification model capable of detecting vari
 3. Experimentation
   Use notebooks in `notebooks/` for exploratory data analysis, feature engineering, or testing new model ideas.
 
+4. Results and conclusions
+  Final results and conclusions can be found on `docs/project_report.rst`. More details about the whole project can be found on the rest of the docs folder.
+
 ## 📁 Project structure
 
 ```bash
@@ -81,9 +84,9 @@ pip install -r requirements.txt
 - [x] Dependencies defined
 - [x] Exploratory data analysis (EDA)
 - [x] Baseline model (TF-IDF + Logistic Regression)
-- [ ] Transformer-based model (BERT)
-- [ ] Evaluation and discussion
-- [ ] Final report
+- [x] Improved preprocessing model (TF-IDF + Logistic Regression + Preprocessing)
+- [x] Embedding model
+- [x] Final report
 
 ## 🧠 Problem Summary
 
