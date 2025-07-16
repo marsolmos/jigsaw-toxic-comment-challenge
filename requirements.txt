@@ -1,6 +1,7 @@
 # Core dependencies
 sphinx>=8.0.0
 sphinx-rtd-theme>=3.0.0
+furo>=2024.8.0
 python-dotenv>=1.1.0
 lxml>=5.4.0
 lxml_html_clean>=0.4.2
