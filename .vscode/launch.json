@@ -9,7 +9,7 @@
       "console": "internalConsole",
       "justMyCode": false,
       "args": [
-        "--model-id", "baseline_tfidf",
+        "--model-id", "upgraded_preprocess_tfidf",
         "--max-features", "10000",
         "--C", "4.0"
       ]
