@@ -2,8 +2,7 @@ from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from typing import Dict
 
-from src.model import ToxicityClassifier  # relative import
-from src.config import LABELS  # optionally used for validation or response schema
+from training.model import ToxicityClassifier  # relative import
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -28,6 +27,20 @@ def root():
         Dict: A simple message indicating the API is running.
     """
     return {"message": "Toxicity API is running."}
+
+
+########################################
+########## GET AVAILABLE MODELS ########
+########################################
+@app.get("/models/", tags=["Model Info"])
+def list_available_models():
+    """
+    List available model IDs stored in the model directory.
+    """
+    from pathlib import Path
+    model_dir = Path("models")
+    model_ids = [f.name for f in model_dir.iterdir() if f.is_dir()]
+    return {"available_models": model_ids}
 
 
 ###################################################

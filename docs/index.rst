@@ -5,6 +5,7 @@ Toxic Comment Classifier
    :maxdepth: 2
    :caption: Contents:
 
+   api
    training
    project_report
 
@@ -96,11 +97,6 @@ Run MLflow UI to Inspect Models
 
 API Reference
 =============
-
-.. automodule:: api
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 .. automodule:: utils
    :members:
