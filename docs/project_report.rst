@@ -22,6 +22,26 @@ We used the following approach:
   - Insult: 0.77
   - Identity Hate: 0.62
 
+Updated Preprocessing
+---------------------
+
+To improve the baseline model, we updated the preprocessing steps. In this way, we aimed to enhance the model's performance by addressing issues like punctuation, special characters, and stop words.
+
+The updated preprocessing included:
+- Remove HTML tags.
+- Remove URLs.
+- Lowercasing and stripping whitespace.
+- Remove emails
+- Replace multiple whitespaces with a single space.
+
+The updated model achieved similar ROC-AUC scores as the baseline, indicating that the preprocessing changes did not significantly impact performance. Achieved ROC-AUC scores per class were:
+  - Toxic: 0.83
+  - Severe Toxic: 0.63
+  - Obscene: 0.83
+  - Threat: 0.62
+  - Insult: 0.77
+  - Identity Hate: 0.62
+
 References
 ----------
 

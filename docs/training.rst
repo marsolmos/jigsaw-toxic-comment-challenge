@@ -3,10 +3,6 @@ Training Scripts
 
 This section describes the different training approaches implemented in the project.
 
-.. contents::
-   :local:
-   :depth: 1
-
 TF-IDF Baseline
 ---------------
 

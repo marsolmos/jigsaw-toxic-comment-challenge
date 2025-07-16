@@ -4,6 +4,13 @@ from langdetect.lang_detect_exception import LangDetectException
 import re
 
 def detect_language(text):
+    """Detect the language of a given text using langdetect.
+
+    Args:
+        text (str): Input text to detect language.
+    Returns:
+        str: Detected language code (e.g., 'en' for English).
+    """
     try:
         return detect(text)
     except LangDetectException:

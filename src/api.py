@@ -22,6 +22,11 @@ class Comment(BaseModel):
 #################################
 @app.get("/", tags=["Default"])
 def root():
+    """
+    Root endpoint to check if the API is running.
+    Returns:
+        Dict: A simple message indicating the API is running.
+    """
     return {"message": "Toxicity API is running."}
 
 

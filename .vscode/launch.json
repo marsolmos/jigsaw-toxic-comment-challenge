@@ -2,7 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Train model (train.py)",
+      "name": "Train baseline model (train_baseline.py)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/training/train_baseline.py",
+      "console": "internalConsole",
+      "justMyCode": false,
+      "args": [
+        "--model-id", "tfidf_logreg_baseline",
+        "--max-features", "10000",
+        "--C", "4.0"
+      ]
+    },
+    {
+      "name": "Train updated preprocess model (train_updated_preprocess.py)",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/src/training/train_updated_preprocess.py",
@@ -12,6 +25,17 @@
         "--model-id", "tfidf_logreg_updated_preprocess",
         "--max-features", "10000",
         "--C", "4.0"
+      ]
+    },
+    {
+      "name": "Train embedding model (train_embedding_model.py)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/training/train_embedding_model.py",
+      "console": "internalConsole",
+      "justMyCode": false,
+      "args": [
+        "--model-id", "embedding_model",
       ]
     }
   ]

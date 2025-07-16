@@ -5,8 +5,6 @@ Toxic Comment Classifier
    :maxdepth: 2
    :caption: Contents:
 
-   api/api
-   model
    training
    project_report
 
@@ -79,7 +77,7 @@ Ensure your ``.vscode/launch.json`` includes:
 Run MLflow UI to Inspect Models
 -------------------------------
 
-1. Start MLflow’s web UI locally with:
+1. Start MLflow's web UI locally with:
 
    .. code-block:: bash
 
@@ -99,12 +97,17 @@ Run MLflow UI to Inspect Models
 API Reference
 =============
 
-.. automodule:: model
+.. automodule:: api
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: train
+.. automodule:: utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: training
    :members:
    :undoc-members:
    :show-inheritance:
