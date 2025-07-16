@@ -28,6 +28,11 @@ The task is to build a multilabel classification model capable of detecting vari
 toxicity-classification/
 │
 ├── data/               # Input data (train.csv, test.csv, etc.)
+├── docs/               # Sphinx documentation
+│   ├── conf.py
+│   ├── index.rst
+│   ├── api/
+│   └── _build/         # auto-generated HTML documentation
 ├── notebooks/          # Exploratory notebooks (EDA, modeling)
 ├── src/
 │   ├── main.py          # FastAPI endpoints (for inference)
@@ -75,7 +80,7 @@ pip install -r requirements.txt
 - [x] Virtual environment configured
 - [x] Dependencies defined
 - [x] Exploratory data analysis (EDA)
-- [ ] Baseline model (TF-IDF + Logistic Regression)
+- [x] Baseline model (TF-IDF + Logistic Regression)
 - [ ] Transformer-based model (BERT)
 - [ ] Evaluation and discussion
 - [ ] Final report
