@@ -5,11 +5,11 @@
       "name": "Train model (train.py)",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/src/train.py",
+      "program": "${workspaceFolder}/src/training/train_updated_preprocess.py",
       "console": "internalConsole",
       "justMyCode": false,
       "args": [
-        "--model-id", "upgraded_preprocess_tfidf",
+        "--model-id", "tfidf_logreg_updated_preprocess",
         "--max-features", "10000",
         "--C", "4.0"
       ]

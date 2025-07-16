@@ -6,6 +6,10 @@ Toxic Comment Classifier
    :caption: Contents:
 
    api/api
+   model
+   training
+   project_report
+
 
 How to Work with This Project
 =============================
