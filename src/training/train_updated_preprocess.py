@@ -48,15 +48,13 @@ def train_model(model_id: str = "latest", max_features: int = 10000, C: float = 
     clf.fit(X_train_vec, y_train)
 
     # 6. Evaluate on validation set
-    print("[INFO] Evaluating on validation set...")
+    print("[INFO] Evaluating...")
     metrics = {}
-    y_val_pred_proba = clf.predict_proba(X_val_vec)
     for i, label in enumerate(LABELS):
         y_true = y_val[label]
-        y_pred_proba = y_val_pred_proba[:, i]
-        score = roc_auc_score(y_true, y_pred_proba)
+        y_pred = clf.predict(X_val_vec)[:, i]
+        score = roc_auc_score(y_true, y_pred)
         metrics[label + "_roc_auc"] = score
-        print(f"{label} ROC AUC (val): {score:.4f}")
 
     # 7. MLflow logging
     print("[INFO] Logging to MLflow...")

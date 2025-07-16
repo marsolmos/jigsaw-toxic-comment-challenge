@@ -51,7 +51,7 @@ Run the training script with optional parameters:
 
 .. code-block:: bash
 
-   python src/train.py --model-id "v1" --max-features 10000 --C 2.0
+   python src/training/train.py --model-id "v1" --max-features 10000 --C 2.0
 
 This will train the model, save it under ``models/v1/``, and log metrics if MLflow is enabled.
 
